@@ -1,0 +1,134 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\BeritaAcaraInovasi;
+use App\Models\Inovasi;
+use App\Models\InovasiMonitoring;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
+use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+
+class InovasiController extends Controller implements HasMiddleware
+{
+    public static function middleware(): array
+    {
+        return [
+            new Middleware('auth'),
+        ];
+    }
+
+    public function index(Request $request)
+    {
+        $inovasi = Inovasi::all();
+
+        $tahunIni = Carbon::now()->year;
+        $tahunLalu = Carbon::now()->subYear()->year;
+
+        $inovasiTahunIni = Inovasi::where('status', '!=', 'draft')
+            ->whereHas('periode', fn($q) => $q->where('tahun', $tahunIni))
+            ->get();
+
+        $inovasiTahunLalu = Inovasi::where('status', '!=', 'draft')
+            ->whereHas('periode', fn($q) => $q->where('tahun', $tahunLalu))
+            ->get();
+
+        // hitung persentase kenaikan
+        if ($inovasiTahunLalu->count() > 0) {
+            $persentaseTotal = (($inovasiTahunIni->count() - $inovasiTahunLalu->count()) / $inovasiTahunLalu->count()) * 100;
+            $persentaseDiajukan = (($inovasiTahunIni->where('status', 'diajukan')->count() - $inovasiTahunLalu->where('status', 'diajukan')->count()) / $inovasiTahunLalu->where('status', 'diajukan')->count()) * 100;
+            $persentaseDiterima = (($inovasiTahunIni->where('status', 'diterima')->count() - $inovasiTahunLalu->where('status', 'diterima')->count()) / $inovasiTahunLalu->where('status', 'diterima')->count()) * 100;
+            $persentaseDitolak = (($inovasiTahunIni->where('status', 'ditolak')->count() - $inovasiTahunLalu->where('status', 'ditolak')->count()) / $inovasiTahunLalu->where('status', 'ditolak')->count()) * 100;
+        } else {
+            // kalau tahun lalu 0, berarti semua dianggap kenaikan penuh
+            $persentaseTotal = $inovasiTahunIni->count() > 0 ? 100 : 0;
+            $persentaseDiajukan = $inovasiTahunIni->count() > 0 ? 100 : 0;
+            $persentaseDiterima = $inovasiTahunIni->count() > 0 ? 100 : 0;
+            $persentaseDitolak = $inovasiTahunIni->count() > 0 ? 100 : 0;
+        }
+
+        return view('inovasi.index', compact('inovasi', 'inovasiTahunIni', 'inovasiTahunLalu', 'persentaseTotal', 'persentaseDiajukan', 'persentaseDiterima', 'persentaseDitolak'));
+    }
+
+    public function list(Request $request)
+    {
+        return view('inovasi.list');
+    }
+
+    public function periode(Request $request)
+    {
+        return view('inovasi.periode');
+    }
+
+    public function pengajuan(Request $request)
+    {
+        return view('inovasi.pengajuan');
+    }
+
+    public function status(Request $request)
+    {
+        return view('inovasi.status');
+    }
+
+    public function persetujuan(Request $request)
+    {
+        return view('inovasi.persetujuan');
+    }
+
+    public function paparan(Request $request)
+    {
+        return view('inovasi.paparan');
+    }
+
+    public function monitoring(Request $request)
+    {
+        return view('inovasi.monitoring');
+    }
+
+    public function beritaAcara(Request $request)
+    {
+        return view('inovasi.beritaacara');
+    }
+
+    public function showProposal($id)
+    {
+        $inovasi = Inovasi::findOrFail(Crypt::decrypt($id));
+
+        if (!$inovasi->proposal_word || !Storage::disk('public')->exists($inovasi->proposal_word)) {
+            abort(404);
+        }
+
+        return response()->file(storage_path('app/public/' . $inovasi->proposal_word));
+    }
+
+    public function showFile($id)
+    {
+        $file = InovasiMonitoring::findOrFail(Crypt::decrypt($id));
+
+        if (!$file->dokumen || !Storage::disk('public')->exists($file->dokumen)) {
+            abort(404);
+        }
+
+        return response()->file(storage_path('app/public/' . $file->dokumen));
+    }
+
+    public function print($id)
+    {
+        // Ambil data berita acara berdasarkan ID
+        $cek = Inovasi::findOrFail($id);
+        $data = BeritaAcaraInovasi::where('inovasi_id', $cek->id)->first();
+        $namaFile = Str::slug($data->inovasi->judul, '_') . '.pdf';
+
+        // Buat PDF dari view
+        $pdf = Pdf::loadView('inovasi.berita-acara-pdf', compact('data'))
+            ->setPaper('a4', 'portrait');
+
+        // Stream hasil PDF ke browser (buka di tab baru)
+        return $pdf->stream('berita_acara_' . $namaFile);
+    }
+}
