@@ -8,7 +8,7 @@
         </li>
 
         <li class="pc-item pc-caption">
-            <label>UI Components</label>
+            <label>Menu</label>
             <i class="ti ti-dashboard"></i>
         </li>
         <li class="pc-item">
@@ -18,7 +18,7 @@
             </a>
         </li>
         <li class="pc-item">
-            <a href="../elements/bc_color.html" class="pc-link">
+            <a href="{{ route('agenda.presensi') }}" class="pc-link">
                 <span class="pc-micon"><i class="ti ti-checks"></i></span>
                 <span class="pc-mtext">Presensi</span>
             </a>

@@ -77,6 +77,8 @@ return new class extends Migration
             $table->text('keterangan_hki')->nullable();
             $table->integer('jumlah_paten')->nullable();
             $table->text('keterangan_paten')->nullable();
+            $table->integer('jumlah_pengakuan')->nullable();
+            $table->text('keterangan_pengakuan')->nullable();
             $table->integer('jumlah_penghargaan')->nullable();
             $table->text('keterangan_penghargaan')->nullable();
             $table->integer('jumlah_dokumen_lainnya')->nullable();

@@ -28,13 +28,14 @@
                                     <td class="text-center">1</td>
                                     <td>Kebijakan</td>
                                     <td class="text-center"><input type="checkbox" class="form-check-input"
-                                            wire:model='kebijakan'>
+                                            wire:model.live.debounce.100ms='kebijakan'>
                                         @error('kebijakan')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </td>
                                     <td>
-                                        <textarea class="form-control" id="" cols="30" rows="1" wire:model='keterangan_kebijakan'></textarea>
+                                        <textarea class="form-control" id="" cols="30" rows="1" wire:model='keterangan_kebijakan'
+                                            {{ $kebijakan ? '' : 'disabled' }}></textarea>
                                         @error('keterangan_kebijakan')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
@@ -44,13 +45,14 @@
                                     <td class="text-center">2</td>
                                     <td>Teknologi Kesehatan</td>
                                     <td class="text-center"><input type="checkbox" class="form-check-input"
-                                            wire:model='tek_kes'>
+                                            wire:model.live.debounce.100ms='tek_kes'>
                                         @error('tek_kes')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </td>
                                     <td>
-                                        <textarea class="form-control" id="" cols="30" rows="1" wire:model='keterangan_tek_kes'></textarea>
+                                        <textarea class="form-control" id="" cols="30" rows="1" wire:model='keterangan_tek_kes'
+                                            {{ $tek_kes ? '' : 'disabled' }}></textarea>
                                         @error('keterangan_tek_kes')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
@@ -60,13 +62,14 @@
                                     <td class="text-center">3</td>
                                     <td>Teknologi Sistem Informasi</td>
                                     <td class="text-center"><input type="checkbox" class="form-check-input"
-                                            wire:model='tek_si'>
+                                            wire:model.live.debounce.100ms='tek_si'>
                                         @error('tek_si')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </td>
                                     <td>
-                                        <textarea class="form-control" id="" cols="30" rows="1" wire:model='keterangan_tek_si'></textarea>
+                                        <textarea class="form-control" id="" cols="30" rows="1" wire:model='keterangan_tek_si'
+                                            {{ $tek_si ? '' : 'disabled' }}></textarea>
                                         @error('keterangan_tek_si')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
@@ -76,13 +79,14 @@
                                     <td class="text-center">4</td>
                                     <td>Pelayanan Publik</td>
                                     <td class="text-center"><input type="checkbox" class="form-check-input"
-                                            wire:model='pelayanan_publik'>
+                                            wire:model.live.debounce.100ms='pelayanan_publik'>
                                         @error('pelayanan_publik')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </td>
                                     <td>
-                                        <textarea class="form-control" id="" cols="30" rows="1" wire:model='keterangan_pelayanan_publik'></textarea>
+                                        <textarea class="form-control" id="" cols="30" rows="1" wire:model='keterangan_pelayanan_publik'
+                                            {{ $pelayanan_publik ? '' : 'disabled' }}></textarea>
                                         @error('keterangan_pelayanan_publik')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
@@ -92,13 +96,14 @@
                                     <td class="text-center">5</td>
                                     <td>Budaya Kerja</td>
                                     <td class="text-center"><input type="checkbox" class="form-check-input"
-                                            wire:model='budaya_kerja'>
+                                            wire:model.live.debounce.100ms='budaya_kerja'>
                                         @error('budaya_kerja')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </td>
                                     <td>
-                                        <textarea class="form-control" id="" cols="30" rows="1" wire:model='keterangan_budaya_kerja'></textarea>
+                                        <textarea class="form-control" id="" cols="30" rows="1" wire:model='keterangan_budaya_kerja'
+                                            {{ $budaya_kerja ? '' : 'disabled' }}></textarea>
                                         @error('keterangan_budaya_kerja')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
@@ -108,13 +113,14 @@
                                     <td class="text-center">6</td>
                                     <td>Metode Kerja / SOP</td>
                                     <td class="text-center"><input type="checkbox" class="form-check-input"
-                                            wire:model='sop'>
+                                            wire:model.live.debounce.100ms='sop'>
                                         @error('sop')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </td>
                                     <td>
-                                        <textarea class="form-control" id="" cols="30" rows="1" wire:model='keterangan_sop'></textarea>
+                                        <textarea class="form-control" id="" cols="30" rows="1" wire:model='keterangan_sop'
+                                            {{ $sop ? '' : 'disabled' }}></textarea>
                                         @error('keterangan_sop')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
@@ -124,13 +130,14 @@
                                     <td class="text-center">7</td>
                                     <td>MoU /Perjanjian</td>
                                     <td class="text-center"><input type="checkbox" class="form-check-input"
-                                            wire:model='mou'>
+                                            wire:model.live.debounce.100ms='mou'>
                                         @error('mou')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </td>
                                     <td>
-                                        <textarea class="form-control" id="" cols="30" rows="1" wire:model='keterangan_mou'></textarea>
+                                        <textarea class="form-control" id="" cols="30" rows="1" wire:model='keterangan_mou'
+                                            {{ $mou ? '' : 'disabled' }}></textarea>
                                         @error('keterangan_mou')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
@@ -140,13 +147,14 @@
                                     <td class="text-center">8</td>
                                     <td>Produk / Prototipe</td>
                                     <td class="text-center"><input type="checkbox" class="form-check-input"
-                                            wire:model='produk'>
+                                            wire:model.live.debounce.100ms='produk'>
                                         @error('produk')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </td>
                                     <td>
-                                        <textarea class="form-control" id="" cols="30" rows="1" wire:model='keterangan_produk'></textarea>
+                                        <textarea class="form-control" id="" cols="30" rows="1" wire:model='keterangan_produk'
+                                            {{ $produk ? '' : 'disabled' }}></textarea>
                                         @error('keterangan_produk')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
@@ -165,14 +173,15 @@
                                     <td class="text-center">1</td>
                                     <td>Pembaharuan / Orisinal / Modifikasi</td>
                                     <td class="text-center"><input type="checkbox" class="form-check-input"
-                                            wire:model='pembaharuan'>
+                                            wire:model.live.debounce.100ms='pembaharuan'>
 
                                         @error('pembaharuan')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </td>
                                     <td>
-                                        <textarea class="form-control" id="" cols="30" rows="1" wire:model='keterangan_pembaharuan'></textarea>
+                                        <textarea class="form-control" id="" cols="30" rows="1" wire:model='keterangan_pembaharuan'
+                                            {{ $pembaharuan ? '' : 'disabled' }}></textarea>
                                         @error('keterangan_pembaharuan')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
@@ -182,14 +191,15 @@
                                     <td class="text-center">2</td>
                                     <td>Memudahkan pelayanan</td>
                                     <td class="text-center"><input type="checkbox" class="form-check-input"
-                                            wire:model='memudahkan'>
+                                            wire:model.live.debounce.100ms='memudahkan'>
 
                                         @error('memudahkan')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </td>
                                     <td>
-                                        <textarea class="form-control" id="" cols="30" rows="1" wire:model='keterangan_memudahkan'></textarea>
+                                        <textarea class="form-control" id="" cols="30" rows="1" wire:model='keterangan_memudahkan'
+                                            {{ $memudahkan ? '' : 'disabled' }}></textarea>
                                         @error('keterangan_memudahkan')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
@@ -199,14 +209,15 @@
                                     <td class="text-center">3</td>
                                     <td>Mempercepat Pelayanan</td>
                                     <td class="text-center"><input type="checkbox" class="form-check-input"
-                                            wire:model='mempercepat'>
+                                            wire:model.live.debounce.100ms='mempercepat'>
 
                                         @error('mempercepat')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </td>
                                     <td>
-                                        <textarea class="form-control" id="" cols="30" rows="1" wire:model='keterangan_mempercepat'></textarea>
+                                        <textarea class="form-control" id="" cols="30" rows="1" wire:model='keterangan_mempercepat'
+                                            {{ $mempercepat ? '' : 'disabled' }}></textarea>
                                         @error('keterangan_mempercepat')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
@@ -216,13 +227,14 @@
                                     <td class="text-center">4</td>
                                     <td>Disebarluaskan</td>
                                     <td class="text-center"><input type="checkbox" class="form-check-input"
-                                            wire:model='disebarluaskan'>
+                                            wire:model.live.debounce.100ms='disebarluaskan'>
                                         @error('disebarluaskan')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </td>
                                     <td>
-                                        <textarea class="form-control" id="" cols="30" rows="1" wire:model='keterangan_disebarluaskan'></textarea>
+                                        <textarea class="form-control" id="" cols="30" rows="1" wire:model='keterangan_disebarluaskan'
+                                            {{ $disebarluaskan ? '' : 'disabled' }}></textarea>
                                         @error('disebarluaskan')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
@@ -232,14 +244,15 @@
                                     <td class="text-center">5</td>
                                     <td>Bermanfaat</td>
                                     <td class="text-center"><input type="checkbox" class="form-check-input"
-                                            wire:model='bermanfaat'>
+                                            wire:model.live.debounce.100ms='bermanfaat'>
 
                                         @error('bermanfaat')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </td>
                                     <td>
-                                        <textarea class="form-control" id="" cols="30" rows="1" wire:model='keterangan_bermanfaat'></textarea>
+                                        <textarea class="form-control" id="" cols="30" rows="1" wire:model='keterangan_bermanfaat'
+                                            {{ $bermanfaat ? '' : 'disabled' }}></textarea>
                                         @error('keterangan_bermanfaat')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
@@ -249,14 +262,15 @@
                                     <td class="text-center">6</td>
                                     <td>Spesifik</td>
                                     <td class="text-center"><input type="checkbox" class="form-check-input"
-                                            wire:model='spesifik'>
+                                            wire:model.live.debounce.100ms='spesifik'>
 
                                         @error('spesifik')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </td>
                                     <td>
-                                        <textarea class="form-control" id="" cols="30" rows="1" wire:model='keterangan_spesifik'></textarea>
+                                        <textarea class="form-control" id="" cols="30" rows="1" wire:model='keterangan_spesifik'
+                                            {{ $spesifik ? '' : 'disabled' }}></textarea>
                                         @error('keterangan_spesifik')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
@@ -266,13 +280,14 @@
                                     <td class="text-center">7</td>
                                     <td>Berkelanjutan</td>
                                     <td class="text-center"><input type="checkbox" class="form-check-input"
-                                            wire:model='berkelanjutan'>
+                                            wire:model.live.debounce.100ms='berkelanjutan'>
                                         @error('berkelanjutan')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </td>
                                     <td>
-                                        <textarea class="form-control" id="" cols="30" rows="1" wire:model='keterangan_berkelanjutan'></textarea>
+                                        <textarea class="form-control" id="" cols="30" rows="1" wire:model='keterangan_berkelanjutan'
+                                            {{ $berkelanjutan ? '' : 'disabled' }}></textarea>
                                         @error('keterangan_berkelanjutan')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
@@ -282,13 +297,14 @@
                                     <td class="text-center">8</td>
                                     <td>Solusi / Upaya pemecahan masalah</td>
                                     <td class="text-center"><input type="checkbox" class="form-check-input"
-                                            wire:model='solusi'>
+                                            wire:model.live.debounce.100ms='solusi'>
                                         @error('solusi')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </td>
                                     <td>
-                                        <textarea class="form-control" id="" cols="30" rows="1" wire:model='keterangan_solusi'></textarea>
+                                        <textarea class="form-control" id="" cols="30" rows="1" wire:model='keterangan_solusi'
+                                            {{ $solusi ? '' : 'disabled' }}></textarea>
                                         @error('keterangan_solusi')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
@@ -298,14 +314,14 @@
                                     <td class="text-center">9</td>
                                     <td>Dapat diaplikasikan di Internal / Eksternal</td>
                                     <td class="text-center"><input type="checkbox" class="form-check-input"
-                                            wire:model='dapat_diaplikasikan'>
+                                            wire:model.live.debounce.100ms='dapat_diaplikasikan'>
                                         @error('dapat_diaplikasikan')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </td>
                                     <td>
                                         <textarea class="form-control" id="" cols="30" rows="1"
-                                            wire:model='keterangan_dapat_diaplikasikan'></textarea>
+                                            wire:model='keterangan_dapat_diaplikasikan' {{ $dapat_diaplikasikan ? '' : 'disabled' }}></textarea>
                                         @error('keterangan_dapat_diaplikasikan')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
@@ -315,13 +331,14 @@
                                     <td class="text-center">10</td>
                                     <td>Percontohan Nasional</td>
                                     <td class="text-center"><input type="checkbox" class="form-check-input"
-                                            wire:model='percontohan'>
+                                            wire:model.live.debounce.100ms='percontohan'>
                                         @error('percontohan')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </td>
                                     <td>
-                                        <textarea class="form-control" id="" cols="30" rows="1" wire:model='keterangan_percontohan'></textarea>
+                                        <textarea class="form-control" id="" cols="30" rows="1" wire:model='keterangan_percontohan'
+                                            {{ $percontohan ? '' : 'disabled' }}></textarea>
                                         @error('keterangan_percontohan')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
@@ -333,52 +350,290 @@
                                 <tr>
                                     <th class="text-center" style="width:5%;">No</th>
                                     <th style="width:30%;">Komponen</th>
-                                    <th class="text-center" style="width:15%;">Cheklist (Bisa Lebih dari 1)</th>
+                                    <th class="text-center" style="width:15%;">Centang yang sesuai</th>
                                     <th style="width:50%;" class="text-center"></th>
                                 </tr>
-                                <tr>
-                                    <td class="text-center">1</td>
-                                    <td>Perencanaan Kinerja</td>
-                                    <td class="text-center"><input type="checkbox" class="form-check-input"
-                                            wire:model='perencanaan'>
+                                {{-- <tr>
+                                    <td class="text-center">1.A</td>
+                                    <td>Kualitas Perencanaan (KKE 1.b)</td>
+                                    <td class="text-center"><input type="radio" class="form-check-input"
+                                            name="KategoriInovasi" wire:model.live.debounce.100ms='kategoriInovasi'
+                                            value="perencanaan">
                                         @error('perencanaan')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </td>
-                                    <td> </td>
+                                    <td>
+                                        <textarea class="form-control" id="" cols="30" rows="1" class="form-control"
+                                            wire:model='keterangan_perencanaan' {{ $kategoriInovasi == 'perencanaan' ? '' : 'disabled' }}></textarea>
+                                        @error('keterangan_perencanaan')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td class="text-center">2</td>
-                                    <td>Pengukuran Kinerja</td>
-                                    <td class="text-center"><input type="checkbox" class="form-check-input"
-                                            wire:model='pengukuran'>
+                                    <td class="text-center">1.B</td>
+                                    <td>Pemanfaatan Perencanaan (KKE 1.c)</td>
+                                    <td class="text-center"><input type="radio" class="form-check-input"
+                                            name="KategoriInovasi" wire:model.live.debounce.100ms='kategoriInovasi'
+                                            value="pemanfaatan_perencanaan">
+                                        @error('pemanfaatan_perencanaan')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </td>
+                                    <td>
+                                        <textarea class="form-control" cols="30" rows="1" wire:model='keterangan_pemanfaatan_perencanaan'
+                                            {{ $kategoriInovasi == 'pemanfaatan_perencanaan' ? '' : 'disabled' }}></textarea>
+                                        @error('keterangan_pemanfaatan_perencanaan')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">2.A</td>
+                                    <td>Kualitas Pengukuran Kinerja (KKE 2.b)</td>
+                                    <td class="text-center"><input type="radio" class="form-check-input"
+                                            name="KategoriInovasi" wire:model.live.debounce.100ms='kategoriInovasi'
+                                            value="pengukuran">
                                         @error('pengukuran')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </td>
-                                    <td> </td>
+                                    <td>
+                                        <textarea class="form-control" cols="30" rows="1" wire:model='keterangan_pengukuran'
+                                            {{ $kategoriInovasi == 'pengukuran' ? '' : 'disabled' }}></textarea>
+                                        @error('keterangan_pengukuran')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td class="text-center">3</td>
-                                    <td>Pelaporan Kinerja</td>
-                                    <td class="text-center"><input type="checkbox" class="form-check-input"
-                                            wire:model='pelaporan'>
+                                    <td class="text-center">2.B</td>
+                                    <td>Pemanfaatan Pengukuran Kinerja (KKE 2.c)</td>
+                                    <td class="text-center"><input type="radio" class="form-check-input"
+                                            name="KategoriInovasi" wire:model.live.debounce.100ms='kategoriInovasi'
+                                            value="pemanfaatan_pengukuran">
+                                        @error('pemanfaatan_pengukuran')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </td>
+                                    <td>
+                                        <textarea class="form-control" cols="30" rows="1" wire:model='keterangan_pemanfaatan_pengukuran'
+                                            {{ $kategoriInovasi == 'pemanfaatan_pengukuran' ? '' : 'disabled' }}></textarea>
+                                        @error('keterangan_pemanfaatan_pengukuran')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">3.A</td>
+                                    <td>Kualitas Pelaporan Kinerja (KKE 3.b) </td>
+                                    <td class="text-center"><input type="radio" class="form-check-input"
+                                            name="KategoriInovasi" wire:model.live.debounce.100ms='kategoriInovasi'
+                                            value="pelaporan">
                                         @error('pelaporan')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </td>
-                                    <td> </td>
+                                    <td>
+                                        <textarea class="form-control" cols="30" rows="1" wire:model='keterangan_pelaporan'
+                                            {{ $kategoriInovasi == 'pelaporan' ? '' : 'disabled' }}></textarea>
+                                        @error('keterangan_pelaporan')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td class="text-center">4</td>
-                                    <td>Evaluasi Akuntabilitas Internal</td>
-                                    <td class="text-center"><input type="checkbox" class="form-check-input"
-                                            wire:model='evaluasi_akuntabilitas'>
+                                    <td class="text-center">3.B</td>
+                                    <td>Pemanfaatan Pelaporan Kinerja (KKE 3.c) </td>
+                                    <td class="text-center"><input type="radio" class="form-check-input"
+                                            name="KategoriInovasi" wire:model.live.debounce.100ms='kategoriInovasi'
+                                            value="pemanfaatan_pelaporan">
+                                        @error('pemanfaatan_pelaporan')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </td>
+                                    <td>
+                                        <textarea class="form-control" cols="30" rows="1" wire:model='keterangan_pemanfaatan_pelaporan'
+                                            {{ $kategoriInovasi == 'pemanfaatan_pelaporan' ? '' : 'disabled' }}></textarea>
+                                        @error('keterangan_pemanfaatan_pelaporan')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">4.A</td>
+                                    <td>Kualitas Evaluasi Akuntabilitas Kinerja (KKE 4.b)</td>
+                                    <td class="text-center"><input type="radio" class="form-check-input"
+                                            name="KategoriInovasi" wire:model.live.debounce.100ms='kategoriInovasi'
+                                            value="evaluasi_akuntabilitas">
                                         @error('evaluasi_akuntabilitas')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </td>
-                                    <td> </td>
+                                    <td>
+                                        <textarea class="form-control" cols="30" rows="1" wire:model='keterangan_evaluasi_akuntabilitas'
+                                            {{ $kategoriInovasi == 'evaluasi_akuntabilitas' ? '' : 'disabled' }}></textarea>
+                                        @error('keterangan_evaluasi_akuntabilitas')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">4.B</td>
+                                    <td>Pemanfaatan Evaluasi Akuntabilitas Kinerja (KKE 4.c)</td>
+                                    <td class="text-center"><input type="radio" class="form-check-input"
+                                            name="KategoriInovasi" wire:model.live.debounce.100ms='kategoriInovasi'
+                                            value="pemanfaatan_evaluasi_akuntabilitas">
+                                        @error('pemanfaatan_evaluasi_akuntabilitas')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </td>
+                                    <td>
+                                        <textarea class="form-control" cols="30" rows="1"
+                                            wire:model='keterangan_pemanfaatan_evaluasi_akuntabilitas'
+                                            {{ $kategoriInovasi == 'pemanfaatan_evaluasi_akuntabilitas' ? '' : 'disabled' }}></textarea>
+                                        @error('keterangan_pemanfaatan_evaluasi_akuntabilitas')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </td>
+                                </tr> --}}
+                                <tr>
+                                    <td class="text-center">1.A</td>
+                                    <td>Kualitas Perencanaan (KKE 1.b)</td>
+                                    <td class="text-center"><input type="checkbox" class="form-check-input"
+                                            wire:model.live.debounce.100ms='perencanaan'>
+                                        @error('perencanaan')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </td>
+                                    <td>
+                                        <textarea class="form-control" id="" cols="30" rows="1" class="form-control"
+                                            wire:model='keterangan_perencanaan' {{ $perencanaan ? '' : 'disabled' }}></textarea>
+                                        @error('keterangan_perencanaan')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">1.B</td>
+                                    <td>Pemanfaatan Perencanaan (KKE 1.c)</td>
+                                    <td class="text-center"><input type="checkbox" class="form-check-input"
+                                            wire:model.live.debounce.100ms='pemanfaatan_perencanaan'>
+                                        @error('pemanfaatan_perencanaan')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </td>
+                                    <td>
+                                        <textarea class="form-control" cols="30" rows="1" wire:model='keterangan_pemanfaatan_perencanaan'
+                                            {{ $pemanfaatan_perencanaan ? '' : 'disabled' }}></textarea>
+                                        @error('keterangan_pemanfaatan_perencanaan')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">2.A</td>
+                                    <td>Kualitas Pengukuran Kinerja (KKE 2.b)</td>
+                                    <td class="text-center"><input type="checkbox" class="form-check-input"
+                                            wire:model.live.debounce.100ms='pengukuran'>
+                                        @error('pengukuran')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </td>
+                                    <td>
+                                        <textarea class="form-control" cols="30" rows="1" wire:model='keterangan_pengukuran'
+                                            {{ $pengukuran ? '' : 'disabled' }}></textarea>
+                                        @error('keterangan_pengukuran')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">2.B</td>
+                                    <td>Pemanfaatan Pengukuran Kinerja (KKE 2.c)</td>
+                                    <td class="text-center"><input type="checkbox" class="form-check-input"
+                                            wire:model.live.debounce.100ms='pemanfaatan_pengukuran'>
+                                        @error('pemanfaatan_pengukuran')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </td>
+                                    <td>
+                                        <textarea class="form-control" cols="30" rows="1" wire:model='keterangan_pemanfaatan_pengukuran'
+                                            {{ $pemanfaatan_pengukuran ? '' : 'disabled' }}></textarea>
+                                        @error('keterangan_pemanfaatan_pengukuran')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">3.A</td>
+                                    <td>Kualitas Pelaporan Kinerja (KKE 3.b) </td>
+                                    <td class="text-center"><input type="checkbox" class="form-check-input"
+                                            wire:model.live.debounce.100ms='pelaporan'>
+                                        @error('pelaporan')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </td>
+                                    <td>
+                                        <textarea class="form-control" cols="30" rows="1" wire:model='keterangan_pelaporan'
+                                            {{ $pelaporan ? '' : 'disabled' }}></textarea>
+                                        @error('keterangan_pelaporan')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">3.B</td>
+                                    <td>Pemanfaatan Pelaporan Kinerja (KKE 3.c) </td>
+                                    <td class="text-center"><input type="checkbox" class="form-check-input"
+                                            wire:model.live.debounce.100ms='pemanfaatan_pelaporan'>
+                                        @error('pemanfaatan_pelaporan')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </td>
+                                    <td>
+                                        <textarea class="form-control" cols="30" rows="1" wire:model='keterangan_pemanfaatan_pelaporan'
+                                            {{ $pemanfaatan_pelaporan ? '' : 'disabled' }}></textarea>
+                                        @error('keterangan_pemanfaatan_pelaporan')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">4.A</td>
+                                    <td>Kualitas Evaluasi Akuntabilitas Kinerja (KKE 4.b)</td>
+                                    <td class="text-center"><input type="checkbox" class="form-check-input"
+                                            wire:model.live.debounce.100ms='evaluasi_akuntabilitas'>
+                                        @error('evaluasi_akuntabilitas')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </td>
+                                    <td>
+                                        <textarea class="form-control" cols="30" rows="1" wire:model='keterangan_evaluasi_akuntabilitas'
+                                            {{ $evaluasi_akuntabilitas ? '' : 'disabled' }}></textarea>
+                                        @error('keterangan_evaluasi_akuntabilitas')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">4.B</td>
+                                    <td>Pemanfaatan Evaluasi Akuntabilitas Kinerja (KKE 4.c)</td>
+                                    <td class="text-center"><input type="checkbox" class="form-check-input"
+                                            wire:model.live.debounce.100ms='pemanfaatan_evaluasi_akuntabilitas'>
+                                        @error('pemanfaatan_evaluasi_akuntabilitas')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </td>
+                                    <td>
+                                        <textarea class="form-control" cols="30" rows="1"
+                                            wire:model='keterangan_pemanfaatan_evaluasi_akuntabilitas'
+                                            {{ $pemanfaatan_evaluasi_akuntabilitas ? '' : 'disabled' }}></textarea>
+                                        @error('keterangan_pemanfaatan_evaluasi_akuntabilitas')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th colspan="4">D. Waktu (Sesuai Periode Pelaksanaan Evaluasi dan Belum Pernah
@@ -419,68 +674,105 @@
                                     <td class="text-center">1</td>
                                     <td>SK</td>
                                     <td class="text-center"><input type="number" step="1"
-                                            class="form-control form-control-sm" wire:model='jumlah_sk'>
+                                            class="form-control form-control-sm"
+                                            wire:model.live.debounce.100ms='jumlah_sk'>
                                         @error('jumlah_sk')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </td>
-                                    <td></td>
+                                    <td>
+                                        <textarea class="form-control" cols="30" rows="1" wire:model='keterangan_sk'
+                                            {{ $jumlah_sk > 0 ? '' : 'disabled' }}></textarea>
+                                        @error('keterangan_sk')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td class="text-center">2</td>
                                     <td>Manual Book</td>
                                     <td class="text-center"><input type="number" step="1"
-                                            class="form-control form-control-sm" wire:model='jumlah_manual_book'>
+                                            class="form-control form-control-sm"
+                                            wire:model.live.debounce.100ms='jumlah_manual_book'>
                                         @error('jumlah_manual_book')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </td>
-                                    <td></td>
+                                    <td>
+                                        <textarea class="form-control" cols="30" rows="1" wire:model='keterangan_manual_book'
+                                            {{ $jumlah_manual_book > 0 ? '' : 'disabled' }}></textarea>
+                                        @error('keterangan_manual_book')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td class="text-center">3</td>
                                     <td>Laporan Inovasi</td>
                                     <td class="text-center"><input type="number" step="1"
-                                            class="form-control form-control-sm" wire:model='jumlah_laporan'>
+                                            class="form-control form-control-sm"
+                                            wire:model.live.debounce.100ms='jumlah_laporan'>
                                         @error('jumlah_laporan')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </td>
-                                    <td></td>
+                                    <td>
+                                        <textarea class="form-control" cols="30" rows="1" wire:model='keterangan_laporan'
+                                            {{ $jumlah_laporan > 0 ? '' : 'disabled' }}></textarea>
+                                        @error('keterangan_laporan')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td class="text-center">4</td>
                                     <td>Tangkap Layar Aplikasi</td>
                                     <td class="text-center"><input type="number" step="1"
-                                            class="form-control form-control-sm" wire:model='jumlah_tangkap_layar'>
+                                            class="form-control form-control-sm"
+                                            wire:model.live.debounce.100ms='jumlah_tangkap_layar'>
                                         @error('jumlah_tangkap_layar')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </td>
-                                    <td></td>
+                                    <td>
+                                        <textarea class="form-control" cols="30" rows="1" wire:model='keterangan_tangkap_layar'
+                                            {{ $jumlah_tangkap_layar > 0 ? '' : 'disabled' }}></textarea>
+                                        @error('keterangan_tangkap_layar')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td class="text-center">5</td>
                                     <td>Matrik Before After</td>
                                     <td class="text-center"><input type="number" step="1"
-                                            class="form-control form-control-sm" wire:model='jumlah_matrik'>
+                                            class="form-control form-control-sm"
+                                            wire:model.live.debounce.100ms='jumlah_matrik'>
                                         @error('jumlah_matrik')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </td>
-                                    <td></td>
+                                    <td>
+                                        <textarea class="form-control" cols="30" rows="1" wire:model='keterangan_matrik'
+                                            {{ $jumlah_matrik > 0 ? '' : 'disabled' }}></textarea>
+                                        @error('keterangan_matrik')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td class="text-center">6</td>
                                     <td>Bukti lainnya</td>
                                     <td class="text-center"><input type="number" step="1"
-                                            class="form-control form-control-sm" wire:model='jumlah_bukti_lainnya'>
+                                            class="form-control form-control-sm"
+                                            wire:model.live.debounce.100ms='jumlah_bukti_lainnya'>
                                         @error('jumlah_bukti_lainnya')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </td>
                                     <td>
-                                        <textarea class="form-control" id="" cols="30" rows="1" wire:model='keterangan_bukti_lainnya'></textarea>
+                                        <textarea class="form-control" id="" cols="30" rows="1" wire:model='keterangan_bukti_lainnya'
+                                            {{ $jumlah_bukti_lainnya > 0 ? '' : 'disabled' }}></textarea>
                                         @error('keterangan_bukti_lainnya')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
@@ -499,13 +791,15 @@
                                     <td class="text-center">1</td>
                                     <td>HKI</td>
                                     <td class="text-center"><input type="number" step="1"
-                                            class="form-control form-control-sm" wire:model='jumlah_hki'>
+                                            class="form-control form-control-sm"
+                                            wire:model.live.debounce.100ms='jumlah_hki'>
                                         @error('jumlah_hki')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </td>
                                     <td>
-                                        <textarea class="form-control" id="" cols="30" rows="1" wire:model='keterangan_hki'></textarea>
+                                        <textarea class="form-control" id="" cols="30" rows="1" wire:model='keterangan_hki'
+                                            {{ $jumlah_hki > 0 ? '' : 'disabled' }}></textarea>
                                         @error('keterangan_hki')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
@@ -515,13 +809,15 @@
                                     <td class="text-center">2</td>
                                     <td>Paten</td>
                                     <td class="text-center"><input type="number" step="1"
-                                            class="form-control form-control-sm" wire:model='jumlah_paten'>
+                                            class="form-control form-control-sm"
+                                            wire:model.live.debounce.100ms='jumlah_paten'>
                                         @error('jumlah_paten')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </td>
                                     <td>
-                                        <textarea class="form-control" id="" cols="30" rows="1" wire:model='keterangan_paten'></textarea>
+                                        <textarea class="form-control" id="" cols="30" rows="1" wire:model='keterangan_paten'
+                                            {{ $jumlah_paten > 0 ? '' : 'disabled' }}></textarea>
                                         @error('keterangan_paten')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
@@ -529,32 +825,53 @@
                                 </tr>
                                 <tr>
                                     <td class="text-center">3</td>
-                                    <td>Penghargaan Nasional / Regional / Internal</td>
+                                    <td>Pengakuan dari Instansi Lain</td>
                                     <td class="text-center"><input type="number" step="1"
-                                            class="form-control form-control-sm" wire:model='jumlah_penghargaan'>
-                                        @error('jumlah_penghargaan')
+                                            class="form-control form-control-sm"
+                                            wire:model.live.debounce.100ms='jumlah_pengakuan'>
+                                        @error('jumlah_pengakuan')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </td>
                                     <td>
-                                        <textarea class="form-control" id="" cols="30" rows="1" wire:model='keterangan_penghargaan'></textarea>
-                                        @error('keterangan_penghargaan')
+                                        <textarea class="form-control" id="" cols="30" rows="1" wire:model='keterangan_pengakuan'
+                                            {{ $jumlah_pengakuan > 0 ? '' : 'disabled' }}></textarea>
+                                        @error('keterangan_pengakuan')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="text-center">4</td>
+                                    <td>Penghargaan Nasional / Regional / Internal</td>
+                                    <td class="text-center"><input type="number" step="1"
+                                            class="form-control form-control-sm"
+                                            wire:model.live.debounce.100ms='jumlah_penghargaan'>
+                                        @error('jumlah_penghargaan')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </td>
+                                    <td>
+                                        <textarea class="form-control" id="" cols="30" rows="1" wire:model='keterangan_penghargaan'
+                                            {{ $jumlah_penghargaan > 0 ? '' : 'disabled' }}></textarea>
+                                        @error('keterangan_penghargaan')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">5</td>
                                     <td>Dokumen lainnya</td>
                                     <td class="text-center"><input type="number" step="1"
-                                            class="form-control form-control-sm" wire:model='jumlah_dokumen_lainnya'>
+                                            class="form-control form-control-sm"
+                                            wire:model.live.debounce.100ms='jumlah_dokumen_lainnya'>
                                         @error('jumlah_dokumen_lainnya')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </td>
                                     <td>
-                                        <textarea class="form-control" id="" cols="30" rows="1"
-                                            wire:model='keterangan_dokumen_lainnya'></textarea>
+                                        <textarea class="form-control" id="" cols="30" rows="1" wire:model='keterangan_dokumen_lainnya'
+                                            {{ $jumlah_dokumen_lainnya > 0 ? '' : 'disabled' }}></textarea>
                                         @error('keterangan_dokumen_lainnya')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
@@ -571,21 +888,39 @@
                                 </tr>
                                 <tr>
                                     <td class="text-center">1</td>
-                                    <td>Dapat Dihargai (Kriteria 1 -8)</td>
+                                    <td>Tidak ada (kriteria 1-8) Nilai 0</td>
                                     <td class="text-center"><input type="checkbox" class="form-check-input"
-                                            wire:model='dihargai'>
-                                        @error('dihargai')
+                                            wire:model.live.debounce.100ms='tidak_inovasi'>
+                                        @error('tidak_inovasi')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </td>
                                     <td>
-                                        <textarea class="form-control" id="" cols="30" rows="1" wire:model='keterangan_dihargai'></textarea>
-                                        @error('keterangan_dihargai')
+                                        <textarea class="form-control" id="" cols="30" rows="1" wire:model='keterangan_tidak_inovasi'
+                                            {{ $tidak_inovasi ? '' : 'disabled' }}></textarea>
+                                        @error('keterangan_tidak_inovasi')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </td>
                                 </tr>
                                 <tr>
+                                    <td class="text-center">2</td>
+                                    <td>Dapat dihargai (kriteria 1-9) Nilai 0,5</td>
+                                    <td class="text-center"><input type="checkbox" class="form-check-input"
+                                            wire:model.live.debounce.100ms='dihargai'>
+                                        @error('dihargai')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </td>
+                                    <td>
+                                        <textarea class="form-control" id="" cols="30" rows="1" wire:model='keterangan_dihargai'
+                                            {{ $dihargai ? '' : 'disabled' }}></textarea>
+                                        @error('keterangan_dihargai')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </td>
+                                </tr>
+                                {{-- <tr>
                                     <td class="text-center">2</td>
                                     <td>Diadopsi Satker Lain (Kriteria 1 - 9)</td>
                                     <td class="text-center"><input type="checkbox" class="form-check-input"
@@ -600,40 +935,25 @@
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </td>
-                                </tr>
+                                </tr> --}}
                                 <tr>
                                     <td class="text-center">3</td>
-                                    <td>Percontohan Nasional (Kriteria 1 -10)</td>
+                                    <td>Percontohan Nasional (kriteria 1-10) Nilai 1</td>
                                     <td class="text-center"><input type="checkbox" class="form-check-input"
-                                            wire:model='penilaian_percontohan'>
+                                            wire:model.live.debounce.100ms='penilaian_percontohan'>
                                         @error('penilaian_percontohan')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </td>
                                     <td>
                                         <textarea class="form-control" id="" cols="30" rows="1"
-                                            wire:model='keterangan_penilaian_percontohan'></textarea>
+                                            wire:model='keterangan_penilaian_percontohan' {{ $penilaian_percontohan ? '' : 'disabled' }}></textarea>
                                         @error('keterangan_penilaian_percontohan')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td class="text-center">4</td>
-                                    <td>Tidak Ada Inovasi</td>
-                                    <td class="text-center"><input type="checkbox" class="form-check-input"
-                                            wire:model='tidak_inovasi'>
-                                        @error('tidak_inovasi')
-                                            <small class="text-danger">{{ $message }}</small>
-                                        @enderror
-                                    </td>
-                                    <td>
-                                        <textarea class="form-control" id="" cols="30" rows="1" wire:model='keterangan_tidak_inovasi'></textarea>
-                                        @error('keterangan_tidak_inovasi')
-                                            <small class="text-danger">{{ $message }}</small>
-                                        @enderror
-                                    </td>
-                                </tr>
+
                                 <tr>
                                     <td colspan="4">KESIMPULAN</td>
                                 </tr>
@@ -657,7 +977,8 @@
                                             <select class="form-select form-select-sm" wire:model='spi'>
                                                 <option value="">-- Pilih Anggota SPI --</option>
                                                 @foreach ($dataUser1 as $du)
-                                                    <option value="{{ $du->id }}">{{ $du->name }}</option>
+                                                    <option value="{{ $du->id }}">{{ $du->name }}
+                                                    </option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -678,7 +999,8 @@
                                             <select class="form-select form-select-sm" wire:model='kepala_spi'>
                                                 <option value="">-- Pilih Kepala SPI --</option>
                                                 @foreach ($dataUser2 as $du)
-                                                    <option value="{{ $du->id }}">{{ $du->name }}</option>
+                                                    <option value="{{ $du->id }}">{{ $du->name }}
+                                                    </option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -699,7 +1021,8 @@
                                             <select class="form-select form-select-sm" wire:model='ppe_1'>
                                                 <option value="">-- Pilih PPE 1 --</option>
                                                 @foreach ($dataUser3 as $du)
-                                                    <option value="{{ $du->id }}">{{ $du->name }}</option>
+                                                    <option value="{{ $du->id }}">{{ $du->name }}
+                                                    </option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -720,7 +1043,8 @@
                                             <select class="form-select form-select-sm" wire:model='ppe_2'>
                                                 <option value="">-- Pilih PPE 2 --</option>
                                                 @foreach ($dataUser4 as $du)
-                                                    <option value="{{ $du->id }}">{{ $du->name }}</option>
+                                                    <option value="{{ $du->id }}">{{ $du->name }}
+                                                    </option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -746,10 +1070,6 @@
                             @endif
                         </form>
                     </div>
-
-                    {{-- <div class="col-md-4">
-
-                    </div> --}}
                 </div>
             </div>
         </div>
@@ -825,7 +1145,7 @@
                     </thead>
                     <tbody>
                         @foreach ($data as $a)
-                            <tr wire:key="data_inovasi {{ $a->id }}">
+                            <tr wire:key="data_inovasi_{{ $a->id }}">
                                 <td>{{ $a->judul }}</td>
                                 <td> {{ $a->pengusul->name }} </td>
                                 <td> {{ $a->deskripsi }} </td>
@@ -848,11 +1168,13 @@
                                 <td class="text-center">
                                     <div class="btn-group">
                                         <button class="btn btn-success btn-sm" data-toggle="tooltip"
-                                            data-placement="bottom" title="Unggah data dukung Inovasi"
+                                            data-placement="bottom" title="Checklist Berita Acara"
                                             wire:click='tampilBA({{ $a->id }})'>
                                             <i class="ti ti-file-check align-middle"></i></button>
-                                        <button class="btn btn-primary btn-sm {{ $a->beritaAcara ? '' : 'disabled' }}"
-                                            data-toggle="tooltip" data-placement="bottom" title="Cetak Berita Acara"
+                                        <button
+                                            class="btn btn-primary btn-sm {{ $a->beritaAcara ? '' : 'disabled' }}"
+                                            data-toggle="tooltip" data-placement="bottom"
+                                            title="Download Berita Acara"
                                             wire:click='print({{ $a->beritaAcara ? $a->beritaAcara->id : '' }})'>
                                             <i class="ti ti-file-download align-middle"></i></button>
                                         <a href="{{ route('inovasi.print.berita.acara', $a->id) }}" target="_blank"
@@ -860,7 +1182,6 @@
                                             data-toggle="tooltip" data-placement="bottom" title="Cetak Berita Acara">
                                             <i class="ti ti-printer align-middle"></i>
                                         </a>
-
                                     </div>
                                 </td>
                             </tr>

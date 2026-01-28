@@ -74,15 +74,17 @@
                                                 </button>
                                                 <button type="button" class="btn btn-secondary btn-sm"
                                                     data-bs-toggle="modal" data-bs-target="#modalResetPassword"
+                                                    title="Reset Password"
                                                     wire:click="$set('idYangAkanResetPassword', {{ $a->id }})">
                                                     <i class="ti ti-rotate-2 align-middle"></i>
                                                 </button>
                                                 <button wire:click="edit({{ $a->id }})" data-toggle="tooltip"
-                                                    data-placement="bottom" title="Ubah"
+                                                    data-placement="bottom" title="Ubah Data"
                                                     class="btn btn-warning btn-sm"><i
                                                         class="ti ti-pencil align-middle"></i></button>
                                                 <button type="button" class="btn btn-danger btn-sm"
                                                     data-bs-toggle="modal" data-bs-target="#modalKonfirmasiHapus"
+                                                    title="Hapus User"
                                                     wire:click="$set('idYangAkanDihapus', {{ $a->id }})">
                                                     <i class="ti ti-trash align-middle"></i>
                                                 </button>

@@ -317,7 +317,7 @@
                     </thead>
                     <tbody>
                         @foreach ($data as $a)
-                            <tr wire:key="data_inovasi {{ $a->id }}">
+                            <tr wire:key="data_inovasi_{{ $a->id }}">
                                 <td>{{ $a->judul }}</td>
                                 <td> {{ $a->pengusul->name }} </td>
                                 <td> {{ $a->deskripsi }} </td>

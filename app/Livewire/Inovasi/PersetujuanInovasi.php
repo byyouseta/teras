@@ -106,7 +106,7 @@ class PersetujuanInovasi extends Component
             }
             session()->flash('success', 'Inovasi berhasil disimpan!');
         } else {
-            session()->flash('success', 'Inovasi berhasil disimpan!');
+            session()->flash('error', 'Inovasi gagal disimpan!');
         }
 
         $this->tutupModal();

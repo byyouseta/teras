@@ -40,10 +40,30 @@ class InovasiController extends Controller implements HasMiddleware
 
         // hitung persentase kenaikan
         if ($inovasiTahunLalu->count() > 0) {
-            $persentaseTotal = (($inovasiTahunIni->count() - $inovasiTahunLalu->count()) / $inovasiTahunLalu->count()) * 100;
-            $persentaseDiajukan = (($inovasiTahunIni->where('status', 'diajukan')->count() - $inovasiTahunLalu->where('status', 'diajukan')->count()) / $inovasiTahunLalu->where('status', 'diajukan')->count()) * 100;
-            $persentaseDiterima = (($inovasiTahunIni->where('status', 'diterima')->count() - $inovasiTahunLalu->where('status', 'diterima')->count()) / $inovasiTahunLalu->where('status', 'diterima')->count()) * 100;
-            $persentaseDitolak = (($inovasiTahunIni->where('status', 'ditolak')->count() - $inovasiTahunLalu->where('status', 'ditolak')->count()) / $inovasiTahunLalu->where('status', 'ditolak')->count()) * 100;
+
+            $totalLalu      = $inovasiTahunLalu->count();
+            $totalIni       = $inovasiTahunIni->count();
+
+            $diajukanLalu   = $inovasiTahunLalu->where('status', 'diajukan')->count();
+            $diterimaLalu   = $inovasiTahunLalu->where('status', 'diterima')->count();
+            $ditolakLalu    = $inovasiTahunLalu->where('status', 'ditolak')->count();
+
+            $diajukanIni    = $inovasiTahunIni->where('status', 'diajukan')->count();
+            $diterimaIni    = $inovasiTahunIni->where('status', 'diterima')->count();
+            $ditolakIni     = $inovasiTahunIni->where('status', 'ditolak')->count();
+
+            // helper aman
+            $hitungPersen = function ($lalu, $ini) {
+                if ($lalu == 0) {
+                    return $ini > 0 ? 100 : 0;
+                }
+                return round((($ini - $lalu) / $lalu) * 100, 2);
+            };
+
+            $persentaseTotal    = $hitungPersen($totalLalu, $totalIni);
+            $persentaseDiajukan = $hitungPersen($diajukanLalu, $diajukanIni);
+            $persentaseDiterima = $hitungPersen($diterimaLalu, $diterimaIni);
+            $persentaseDitolak  = $hitungPersen($ditolakLalu, $ditolakIni);
         } else {
             // kalau tahun lalu 0, berarti semua dianggap kenaikan penuh
             $persentaseTotal = $inovasiTahunIni->count() > 0 ? 100 : 0;
@@ -122,10 +142,38 @@ class InovasiController extends Controller implements HasMiddleware
         // Ambil data berita acara berdasarkan ID
         $cek = Inovasi::findOrFail($id);
         $data = BeritaAcaraInovasi::where('inovasi_id', $cek->id)->first();
+
+        if (!$data) {
+            abort(404, 'Berita Acara tidak ditemukan.');
+        }
+
+        $kategoriMap = [
+            'perencanaan' => 'Perencanaan',
+            'pemanfaatan_perencanaan' => 'Pemanfaatan Perencanaan',
+            'pengukuran' => 'Pengukuran',
+            'pemanfaatan_pengukuran' => 'Pemanfaatan Pengukuran',
+            'pelaporan' => 'Pelaporan',
+            'pemanfaatan_pelaporan' => 'Pemanfaatan Pelaporan',
+            'evaluasi_akuntabilitas' => 'Evaluasi Akuntabilitas',
+            'pemanfaatan_evaluasi_akuntabilitas' => 'Pemanfaatan Evaluasi Akuntabilitas',
+        ];
+
+        $dataLaporan = [];
+
+        foreach ($kategoriMap as $field => $label) {
+            if ($data->$field) {
+                $dataLaporan[] = [
+                    'kategori' => $label,
+                    'key' => $field,
+                    'data' => $data,
+                ];
+            }
+        }
+
         $namaFile = Str::slug($data->inovasi->judul, '_') . '.pdf';
 
         // Buat PDF dari view
-        $pdf = Pdf::loadView('inovasi.berita-acara-pdf', compact('data'))
+        $pdf = Pdf::loadView('inovasi.berita-acara-pdf', compact('dataLaporan'))
             ->setPaper('a4', 'portrait');
 
         // Stream hasil PDF ke browser (buka di tab baru)

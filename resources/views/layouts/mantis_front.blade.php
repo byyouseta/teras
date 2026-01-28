@@ -101,19 +101,22 @@
                         <a class="nav-link disabled" aria-disabled="true">Disabled</a>
                     </li> --}}
                 </ul>
-                {{-- <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                    <a class="btn btn-sm text-light bg-teal-500 " href="{{ route('login') }}">Login <i
-                            class="ti ti-login text-center"></i></a>
-                </form> --}}
                 <!-- Tombol Login kanan -->
                 <div class="d-flex">
                     {{-- <a class="btn btn-sm btn-teal" href="{{ route('login') }}">
                         Login <i class="ti ti-login text-center"></i>
                     </a> --}}
-                    <a href="{{ route('login') }}" type="button" class="btn btn-light-primary bg-light text-muted">
-                        <span>Login <i class="ti ti-login text-center"></i></span>
-                    </a>
+                    @auth
+                        <a href="{{ route('main') }}" type="button" class="btn btn-light-primary bg-light text-muted">
+                            <span><i class="ti ti-layout-grid"></i> Main Menu</span>
+                        </a>
+                    @endauth
+                    @guest
+                        <a href="{{ route('login') }}" type="button" class="btn btn-light-primary bg-light text-muted">
+                            <span>Login <i class="ti ti-login text-center"></i></span>
+                        </a>
+                    @endguest
+
                 </div>
             </div>
         </div>
@@ -123,28 +126,9 @@
     <!-- ======= CONTENT ======= -->
     <div class="pc-container">
         <div class="pc-content">
-            <!-- [ breadcrumb ] start -->
-            {{-- <div class="page-header">
-                <div class="page-block">
-                    <div class="row align-items-center">
-                        <div class="col-md-8">
-                            <div class="page-header-title">
-                                <h5 class="mb-0">
-                                    @yield('header-title', 'Test Title')
-                                </h5>
-                            </div>
-                        </div>
-                        <div class="col-md-8">
-                            @yield('breadcrumb')
-                        </div>
-                    </div>
-                </div>
-            </div> --}}
-            <!-- [ breadcrumb ] end -->
 
             <!-- [ Main Content ] start -->
             <div class="row justify-content-center align-items-center">
-                {{-- {{ $slot }} --}}
                 @yield('content')
             </div>
             <!-- [ Main Content ] end -->

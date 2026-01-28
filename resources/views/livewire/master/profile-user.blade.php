@@ -21,7 +21,8 @@
                     <div class="mt-2">
                         <input type="file" wire:model="newPhoto" class="form-control w-auto mx-auto"
                             accept=".jpg,.jpeg,.png">
-                        <small class="text-muted">Rekomendasi ukuran 100x100px, format: .jpg, .jpeg, .png</small>
+                        <small class="text-muted">Rekomendasi ukuran 100x100px, format: .jpg, .jpeg, .png. maksimal
+                            500kb</small>
                         @error('newPhoto')
                             <span class="text-danger small">{{ $message }}</span>
                         @enderror

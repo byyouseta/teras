@@ -85,7 +85,7 @@ class User extends Authenticatable
 
     public function agenda()
     {
-        return $this->belongsToMany('App\Models\Agenda')->withPivot('presensi', 'presensi_at')->withTimestamps();
+        return $this->belongsToMany('App\Models\Agenda')->withPivot('id', 'urutan', 'presensi', 'presensi_at')->withTimestamps();
     }
 
     public function picagenda()

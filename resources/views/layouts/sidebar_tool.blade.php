@@ -17,6 +17,12 @@
                 <span class="pc-mtext">Users</span>
             </a>
         </li>
+        <li class="pc-item">
+            <a href="{{ route('master.logusers') }}" class="pc-link">
+                <span class="pc-micon"><i class="ti ti-clipboard-list"></i></span>
+                <span class="pc-mtext">Logs</span>
+            </a>
+        </li>
         {{-- @endcan --}}
         <li class="pc-item pc-caption">
             <label>Roles And Permission</label>

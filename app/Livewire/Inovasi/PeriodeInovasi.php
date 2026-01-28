@@ -54,7 +54,7 @@ class PeriodeInovasi extends Component
 
     public function simpan()
     {
-        $this->authorize('Akses-Operator-Create');
+        $this->authorize('Inovasi-Operator-Create');
 
         $this->validate();
 
@@ -102,7 +102,7 @@ class PeriodeInovasi extends Component
 
     public function edit($id)
     {
-        $this->authorize('Akses-Operator-Update');
+        $this->authorize('Inovasi-Operator-Update');
 
         $data = PeriodePengusulan::findOrFail($id);
 
@@ -121,7 +121,7 @@ class PeriodeInovasi extends Component
 
     public function hapus()
     {
-        $this->authorize('Akses-Operator-Delete');
+        $this->authorize('Inovasi-Operator-Delete');
 
         $hapus = PeriodePengusulan::find($this->idYangAkanDihapus);
 

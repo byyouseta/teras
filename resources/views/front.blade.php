@@ -61,6 +61,18 @@
                             </div>
                         </a>
                     </div>
+                    <div class="col-sm mb-3">
+                        <a href="{{ route('etika.pelaporan') }}" class="text-decoration-none">
+                            <div class="card shadow-sm h-100">
+                                <div class="card-body text-center">
+                                    <img src="{{ asset('assets/images/ethics.png') }}" alt="Agenda" class="mb-3"
+                                        style="max-height: 50px;">
+                                    <h5 class="card-title">PETIK</h5>
+                                    <p class="card-text text-muted">Pelaporan Dugaan Pelanggaran Etik</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

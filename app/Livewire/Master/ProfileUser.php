@@ -64,7 +64,7 @@ class ProfileUser extends Component
             'name' => 'required|string|max:255',
             'email' => ['required', 'email', Rule::unique('users')->ignore($user->id)],
             'password' => 'nullable|min:6',
-            'newPhoto' => 'nullable|image|max:2048', // max 2MB
+            'newPhoto' => 'nullable|image|max:500', // max 500KB
             'username' => [
                 'required',
                 'string',

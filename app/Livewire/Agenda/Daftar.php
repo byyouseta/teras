@@ -28,6 +28,9 @@ class Daftar extends Component
     public $defaultDataPengundang = [];
     public $cariRuangan, $cariPengundang;
 
+    public $today = false;
+    public $agendaStatus = '';
+
     public $agendaId = '';
     public $idYangAkanDihapus = '';
 
@@ -69,6 +72,13 @@ class Daftar extends Component
                 ->whereYear('tanggal', Carbon::parse($this->periode)->format('Y'));
         }
 
+        if ($this->today == true) {
+            $query->whereDate('tanggal', Carbon::now()->format('Y-m-d'));
+        }
+
+        if ($this->agendaStatus) {
+            $query->where('status', $this->agendaStatus);
+        }
 
         $data = $query->orderBy('tanggal', 'DESC')->paginate(10);
 
@@ -83,6 +93,9 @@ class Daftar extends Component
 
         $this->defaultDataRuangan = $this->dataRuangan;
         $this->defaultDataPengundang = $this->dataPengundang;
+
+        $this->today = request()->query('view') === 'today' ? true : false;
+        $this->agendaStatus = request()->query('status') ? request()->query('status') : '';
     }
 
     // Reset pagination setiap kali filter berubah
@@ -120,10 +133,20 @@ class Daftar extends Component
         $this->enablePeriode = !$this->enablePeriode;
     }
 
+    public function toggleToday()
+    {
+        $this->today = !$this->today;
+
+        if ($this->today == false) {
+            return redirect()->route('agenda.list');
+        }
+    }
+
     public function resetCari()
     {
         $this->reset('cariNamaAgenda', 'cariTempat', 'cariPIC');
         $this->dispatch('resetCariFields');
+        return redirect()->route('agenda.list');
     }
 
     public function simpan()

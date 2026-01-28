@@ -81,6 +81,7 @@
                                         <th>Jenis</th>
                                         <th>Link</th>
                                         <th>Catatan</th>
+                                        <th class="text-center">Pembaharuan</th>
                                         <th class="text-center">Hapus</th>
                                     </tr>
                                 </thead>
@@ -102,6 +103,8 @@
                                                 </span></a>
                                             </td>
                                             <td>{{ $m->catatan }}</td>
+                                            <td class="text-center">
+                                                {{ \Carbon\Carbon::parse($m->updated_at)->format('d-m-Y H:i:s') }}</td>
                                             <td class="text-center"><button type="button"
                                                     class="btn btn-sm btn-danger {{ $detailInovasi->pengusul_id == Auth::user()->id ? '' : 'disabled' }}"
                                                     wire:click="hapusFile({{ $m->id }})">

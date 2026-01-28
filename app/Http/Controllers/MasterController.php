@@ -34,4 +34,9 @@ class MasterController extends Controller implements HasMiddleware
     {
         return view('master.user');
     }
+
+    public function logUsers(Request $request)
+    {
+        return view('master.log-users');
+    }
 }

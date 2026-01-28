@@ -41,6 +41,7 @@ class BeritaAcara extends Component
     public $enablePeriode = true;
     public $formUpload = false;
 
+    public $kategoriInovasi;
     public $kebijakan = false;
     public $tek_kes = false;
     public $tek_si = false;
@@ -63,6 +64,10 @@ class BeritaAcara extends Component
     public $pengukuran = false;
     public $pelaporan = false;
     public $evaluasi_akuntabilitas = false;
+    public $pemanfaatan_perencanaan = false;
+    public $pemanfaatan_pengukuran = false;
+    public $pemanfaatan_pelaporan = false;
+    public $pemanfaatan_evaluasi_akuntabilitas = false;
     public $dihargai = false;
     public $diadopsi = false;
     public $penilaian_percontohan = false;
@@ -73,13 +78,14 @@ class BeritaAcara extends Component
         $keterangan_memudahkan, $keterangan_mempercepat, $keterangan_disebarluaskan, $keterangan_bermanfaat, $keterangan_spesifik,
         $keterangan_berkelanjutan, $keterangan_solusi, $keterangan_dapat_diaplikasikan, $keterangan_percontohan,
         $keterangan_perencanaan, $keterangan_pengukuran, $keterangan_pelaporan, $keterangan_evaluasi_akuntabilitas,
+        $keterangan_pemanfaatan_perencanaan, $keterangan_pemanfaatan_pengukuran, $keterangan_pemanfaatan_pelaporan, $keterangan_pemanfaatan_evaluasi_akuntabilitas,
         $tahun, $keterangan_tahun, $keterangan_sk, $keterangan_manual_book, $keterangan_laporan,
-        $keterangan_tangkap_layar, $keterangan_matrik, $keterangan_hki, $keterangan_paten,
+        $keterangan_tangkap_layar, $keterangan_matrik, $keterangan_hki, $keterangan_paten, $keterangan_pengakuan,
         $keterangan_penghargaan, $keterangan_dihargai, $keterangan_diadopsi, $keterangan_penilaian_percontohan,
         $keterangan_tidak_inovasi, $kesimpulan, $keterangan_bukti_lainnya, $keterangan_dokumen_lainnya;
     public $spi, $kepala_spi, $ppe_1, $ppe_2;
     public $jumlah_tahun, $jumlah_sk, $jumlah_manual_book, $jumlah_laporan, $jumlah_tangkap_layar, $jumlah_matrik, $jumlah_hki,
-        $jumlah_paten, $jumlah_penghargaan, $jumlah_bukti_lainnya, $jumlah_dokumen_lainnya;
+        $jumlah_paten, $jumlah_pengakuan, $jumlah_penghargaan, $jumlah_bukti_lainnya, $jumlah_dokumen_lainnya;
 
     protected function rules()
     {
@@ -106,6 +112,10 @@ class BeritaAcara extends Component
             'pengukuran' => 'nullable|boolean',
             'pelaporan' => 'nullable|boolean',
             'evaluasi_akuntabilitas' => 'nullable|boolean',
+            'pemanfaatan_perencanaan' => 'nullable|boolean',
+            'pemanfaatan_pengukuran' => 'nullable|boolean',
+            'pemanfaatan_pelaporan' => 'nullable|boolean',
+            'pemanfaatan_evaluasi_akuntabilitas' => 'nullable|boolean',
             'dihargai' => 'nullable|boolean',
             'diadopsi' => 'nullable|boolean',
             'penilaian_percontohan' => 'nullable|boolean',
@@ -118,6 +128,7 @@ class BeritaAcara extends Component
             'jumlah_matrik'    => 'nullable|numeric',
             'jumlah_hki'    => 'nullable|numeric',
             'jumlah_paten'    => 'nullable|numeric',
+            'jumlah_pengakuan'    => 'nullable|numeric',
             'jumlah_penghargaan'    => 'nullable|numeric',
             'jumlah_bukti_lainnya'    => 'nullable|numeric',
             'jumlah_dokumen_lainnya'    => 'nullable|numeric',
@@ -246,6 +257,10 @@ class BeritaAcara extends Component
             $this->pengukuran = $cek->pengukuran;
             $this->pelaporan = $cek->pelaporan;
             $this->evaluasi_akuntabilitas = $cek->evaluasi_akuntabilitas;
+            $this->pemanfaatan_perencanaan = $cek->pemanfaatan_perencanaan;
+            $this->pemanfaatan_pengukuran = $cek->pemanfaatan_pengukuran;
+            $this->pemanfaatan_pelaporan = $cek->pemanfaatan_pelaporan;
+            $this->pemanfaatan_evaluasi_akuntabilitas = $cek->pemanfaatan_evaluasi_akuntabilitas;
             $this->dihargai = $cek->dihargai;
             $this->diadopsi = $cek->diadopsi;
             $this->penilaian_percontohan = $cek->penilaian_percontohan;
@@ -272,6 +287,10 @@ class BeritaAcara extends Component
             $this->keterangan_pengukuran = $cek->keterangan_pengukuran;
             $this->keterangan_pelaporan = $cek->keterangan_pelaporan;
             $this->keterangan_evaluasi_akuntabilitas = $cek->keterangan_evaluasi_akuntabilitas;
+            $this->keterangan_pemanfaatan_perencanaan = $cek->keterangan_pemanfaatan_perencanaan;
+            $this->keterangan_pemanfaatan_pengukuran = $cek->keterangan_pemanfaatan_pengukuran;
+            $this->keterangan_pemanfaatan_pelaporan = $cek->keterangan_pemanfaatan_pelaporan;
+            $this->keterangan_pemanfaatan_evaluasi_akuntabilitas = $cek->keterangan_pemanfaatan_evaluasi_akuntabilitas;
             $this->tahun = $cek->tahun;
             $this->keterangan_tahun = $cek->keterangan_tahun;
             $this->keterangan_sk = $cek->keterangan_sk;
@@ -281,6 +300,7 @@ class BeritaAcara extends Component
             $this->keterangan_matrik = $cek->keterangan_matrik;
             $this->keterangan_hki = $cek->keterangan_hki;
             $this->keterangan_paten = $cek->keterangan_paten;
+            $this->keterangan_pengakuan = $cek->keterangan_pengakuan;
             $this->keterangan_penghargaan = $cek->keterangan_penghargaan;
             $this->keterangan_dihargai = $cek->keterangan_dihargai;
             $this->keterangan_diadopsi = $cek->keterangan_diadopsi;
@@ -301,6 +321,7 @@ class BeritaAcara extends Component
             $this->jumlah_matrik = $cek->jumlah_matrik;
             $this->jumlah_hki = $cek->jumlah_hki;
             $this->jumlah_paten = $cek->jumlah_paten;
+            $this->jumlah_pengakuan = $cek->jumlah_pengakuan;
             $this->jumlah_penghargaan = $cek->jumlah_penghargaan;
             $this->jumlah_bukti_lainnya = $cek->jumlah_bukti_lainnya;
             $this->jumlah_dokumen_lainnya = $cek->jumlah_dokumen_lainnya;
@@ -362,6 +383,14 @@ class BeritaAcara extends Component
             'keterangan_pelaporan',
             'evaluasi_akuntabilitas',
             'keterangan_evaluasi_akuntabilitas',
+            'pemanfaatan_perencanaan',
+            'keterangan_pemanfaatan_perencanaan',
+            'pemanfaatan_pengukuran',
+            'keterangan_pemanfaatan_pengukuran',
+            'pemanfaatan_pelaporan',
+            'keterangan_pemanfaatan_pelaporan',
+            'pemanfaatan_evaluasi_akuntabilitas',
+            'keterangan_pemanfaatan_evaluasi_akuntabilitas',
             'jumlah_tahun',
             'keterangan_tahun',
             'jumlah_sk',
@@ -378,6 +407,8 @@ class BeritaAcara extends Component
             'keterangan_hki',
             'jumlah_paten',
             'keterangan_paten',
+            'jumlah_pengakuan',
+            'keterangan_pengakuan',
             'jumlah_penghargaan',
             'keterangan_penghargaan',
             'dihargai',
@@ -447,13 +478,21 @@ class BeritaAcara extends Component
                     'percontohan'           => $this->percontohan,
                     'keterangan_percontohan'           => $this->keterangan_percontohan,
                     'perencanaan'           => $this->perencanaan,
-                    'keterangan_perencanaan'           => $this->keterangan_perencanaan,
+                    'keterangan_perencanaan'           => $this->perencanaan == true ? $this->keterangan_perencanaan : null,
                     'pengukuran'           => $this->pengukuran,
-                    'keterangan_pengukuran'           => $this->keterangan_pengukuran,
+                    'keterangan_pengukuran'           => $this->pengukuran == true ? $this->keterangan_pengukuran : null,
                     'pelaporan'           => $this->pelaporan,
-                    'keterangan_pelaporan'           => $this->keterangan_pelaporan,
+                    'keterangan_pelaporan'           => $this->pelaporan == true ? $this->keterangan_pelaporan : null,
                     'evaluasi_akuntabilitas'           => $this->evaluasi_akuntabilitas,
-                    'keterangan_evaluasi_akuntabilitas'           => $this->keterangan_evaluasi_akuntabilitas,
+                    'keterangan_evaluasi_akuntabilitas'           => $this->evaluasi_akuntabilitas == true ? $this->keterangan_evaluasi_akuntabilitas : null,
+                    'pemanfaatan_perencanaan'           => $this->pemanfaatan_perencanaan,
+                    'keterangan_pemanfaatan_perencanaan'           => $this->pemanfaatan_perencanaan == true ? $this->keterangan_pemanfaatan_perencanaan : null,
+                    'pemanfaatan_pengukuran'           => $this->pemanfaatan_pengukuran,
+                    'keterangan_pemanfaatan_pengukuran'           => $this->pemanfaatan_pengukuran == true ? $this->keterangan_pemanfaatan_pengukuran : null,
+                    'pemanfaatan_pelaporan'           => $this->pemanfaatan_pelaporan,
+                    'keterangan_pemanfaatan_pelaporan'           => $this->pemanfaatan_pelaporan == true ? $this->keterangan_pemanfaatan_pelaporan : null,
+                    'pemanfaatan_evaluasi_akuntabilitas'           => $this->pemanfaatan_evaluasi_akuntabilitas,
+                    'keterangan_pemanfaatan_evaluasi_akuntabilitas'           => $this->pemanfaatan_evaluasi_akuntabilitas == true ? $this->keterangan_pemanfaatan_evaluasi_akuntabilitas : null,
                     'tahun'           => $this->tahun,
                     'jumlah_tahun'           => $this->jumlah_tahun,
                     'keterangan_tahun'           => $this->keterangan_tahun,
@@ -473,6 +512,8 @@ class BeritaAcara extends Component
                     'keterangan_hki'           => $this->keterangan_hki,
                     'jumlah_paten'           => $this->jumlah_paten,
                     'keterangan_paten'           => $this->keterangan_paten,
+                    'jumlah_pengakuan'           => $this->jumlah_pengakuan,
+                    'keterangan_pengakuan'           => $this->keterangan_pengakuan,
                     'jumlah_penghargaan'           => $this->jumlah_penghargaan,
                     'keterangan_penghargaan'           => $this->keterangan_penghargaan,
                     'jumlah_dokumen_lainnya'           => $this->jumlah_dokumen_lainnya,
@@ -507,8 +548,31 @@ class BeritaAcara extends Component
         $data = BeritaAcaraInovasi::findOrFail($id);
         $namaFile = Str::slug($data->inovasi->judul, '_') . '.pdf';
 
+        $kategoriMap = [
+            'perencanaan' => 'Perencanaan',
+            'pemanfaatan_perencanaan' => 'Pemanfaatan Perencanaan',
+            'pengukuran' => 'Pengukuran',
+            'pemanfaatan_pengukuran' => 'Pemanfaatan Pengukuran',
+            'pelaporan' => 'Pelaporan',
+            'pemanfaatan_pelaporan' => 'Pemanfaatan Pelaporan',
+            'evaluasi_akuntabilitas' => 'Evaluasi Akuntabilitas',
+            'pemanfaatan_evaluasi_akuntabilitas' => 'Pemanfaatan Evaluasi Akuntabilitas',
+        ];
+
+        $dataLaporan = [];
+
+        foreach ($kategoriMap as $field => $label) {
+            if ($data->$field) {
+                $dataLaporan[] = [
+                    'kategori' => $label,
+                    'key' => $field,
+                    'data' => $data,
+                ];
+            }
+        }
+
         // siapkan data yang akan dikirim ke view PDF
-        $pdf = Pdf::loadView('inovasi.berita-acara-pdf', ['data' => $data])
+        $pdf = Pdf::loadView('inovasi.berita-acara-pdf', ['dataLaporan' => $dataLaporan])
             ->setPaper('a4', 'portrait');
 
         // langsung tampilkan PDF di browser

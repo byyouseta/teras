@@ -25,6 +25,9 @@
                     <div class="col-auto">
                         <button type="button" class="btn btn-secondary btn-sm" wire:click="resetCari">Reset</button>
                     </div>
+                    <div class="col-auto">
+
+                    </div>
                 </form>
             </div>
 
@@ -32,6 +35,13 @@
                 <div class="row g-3">
                     <div class="col-auto">
                         <div class="input-group input-group-sm mb-1">
+                            <div class="input-group-text">
+                                <input class="form-check-input" type="checkbox" value="" id="checkToday"
+                                    wire:click="toggleToday" {{ $today ? 'checked' : '' }}>
+                                <label class="form-check-label ms-1" for="checkToday">
+                                    Today
+                                </label>
+                            </div>
                             <div class="input-group-text">
                                 <input class="form-check-input mt-0" type="checkbox" id="periodeCheck"
                                     aria-label="Checkbox for following text input" {{ $enablePeriode ? 'checked' : '' }}
@@ -123,8 +133,10 @@
                                         <button wire:click="edit({{ $a->id }})" data-toggle="tooltip"
                                             data-placement="bottom" title="Ubah" class="btn btn-warning btn-sm"><i
                                                 class="ti ti-pencil align-middle"></i></button>
-                                        <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
-                                            data-bs-target="#modalKonfirmasiHapus"
+                                        <button type="button"
+                                            class="btn btn-danger btn-sm @if ($a->status != 'Pengajuan' && Auth::user()->cannot('Patrik-Agenda-Delete')) disabled @endif"
+                                            data-toggle="tooltip" data-placement="bottom" title="Hapus"
+                                            data-bs-toggle="modal" data-bs-target="#modalKonfirmasiHapus"
                                             wire:click="$set('idYangAkanDihapus', {{ $a->id }})">
                                             <i class="ti ti-trash align-middle"></i>
                                         </button>
@@ -215,7 +227,7 @@
                                     <div class="input-group">
                                         <input type="text" class="form-control" id="modalTanggal"
                                             autocomplete="off" wire:model='tanggal'>
-                                        <span class="input-group-text"><i class="ph ph-calendar"></i></span>
+                                        <span class="input-group-text"><i class="ti ti-calendar-event"></i></span>
                                     </div>
                                     @error('tanggal')
                                         <small class="text-danger">{{ $message }}</small>
@@ -226,7 +238,7 @@
                                     <div class="input-group ">
                                         <input type="text" class="form-control" id="modalWaktuMulai"
                                             wire:model='waktuMulai' autocomplete="off">
-                                        <span class="input-group-text"><i class="ph ph-timer"></i></span>
+                                        <span class="input-group-text"><i class="ti ti-calendar-time"></i></span>
                                     </div>
                                     @error('waktuMulai')
                                         <small class="text-danger">{{ $message }}</small>
@@ -238,7 +250,7 @@
                                     <div class="input-group">
                                         <input type="text" class="form-control" id="modalWaktuSelesai"
                                             autocomplete="off" wire:model='waktuSelesai'>
-                                        <span class="input-group-text"><i class="ph ph-timer"></i></span>
+                                        <span class="input-group-text"><i class="ti ti-calendar-time"></i></span>
                                     </div>
                                     @error('waktuSelesai')
                                         <small class="text-danger">{{ $message }}</small>

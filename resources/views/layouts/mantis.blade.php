@@ -326,30 +326,6 @@
 
     @stack('scripts')
 
-    {{-- <script data-navigate_once>
-        document.addEventListener("livewire:navigated", function () {
-            setTimeout(function(){
-            //Code here
-                // Re-init pcoded sidebar
-                if (typeof pcoded !== 'undefined' && typeof pcoded.init === "function") {
-                    pcoded.init();
-                }
-
-                // Re-init SimpleBar di element dengan class 'simplebar'
-                document.querySelectorAll('.simplebar').forEach(function (el) {
-                    if (!el.SimpleBar) {
-                        new SimpleBar(el);
-                    }
-                });
-
-                // Optional: refresh feather icons
-                if (typeof feather !== 'undefined') {
-                    feather.replace();
-                }
-            }, 1);
-        });
-    </script> --}}
-
     @livewireScripts
 </body>
 

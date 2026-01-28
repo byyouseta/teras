@@ -33,7 +33,7 @@ class Agenda extends Model
 
     public function user()
     {
-        return $this->belongsToMany('App\Models\User')->withPivot('urutan', 'presensi', 'presensi_at')->withTimestamps();
+        return $this->belongsToMany('App\Models\User')->withPivot('id', 'urutan', 'presensi', 'presensi_at')->withTimestamps()->orderBy('urutan')->orderBy('name', 'asc');
     }
 
     public function userpic()
